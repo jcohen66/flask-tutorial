@@ -54,9 +54,6 @@ def login():
         elif not check_password_hash(user['password'], password):
             error = 'Incorrect password'
 
-        # When validation succeeds, the user’s id is stored in a new session. The data is stored in a
-        # cookie that is sent to the browser, and the browser then sends it back with subsequent
-        # requests. Flask securely signs the data so that it can’t be tampered with.
         if error is None:
             session.clear()
             session['user_id'] = user['id']
